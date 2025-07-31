@@ -28,7 +28,7 @@ export default async function UserProfile() {
             {author.username}
           </h2>
           <p className="text-sm text-gray-500">{data.user.email?.toLocaleLowerCase()}</p>
-          <p className="text-sm text-gray-500">{author.role.toUpperCase()}</p>
+          <p className="text-sm text-gray-500">{author.role?.toUpperCase()}</p>
           <Link href="/admin/userprofile/editprofile" className="text-sm text-gray-500">Edit Profile</Link>
         </div>
 

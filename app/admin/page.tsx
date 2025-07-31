@@ -1,6 +1,8 @@
+
 import React from "react";
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from "next/navigation";
+import Editor from "../component/Editor";
 
 export default async function admin (): Promise<React.JSX.Element>{
  const supabase = await createClient( );
@@ -11,9 +13,15 @@ export default async function admin (): Promise<React.JSX.Element>{
   }
   
     return (
-        <div className="w-full">
+        <div className="w-full bg-blue-400 h-[100vh]">
         <h1>This the Admin page: Logged in as: {data.user.email }</h1>
         <h1>{data.user.id}</h1>
+        <div className="min-h-100">
+          <Editor/>
+        </div>
+         
+    
+        
         
         </div>
     )

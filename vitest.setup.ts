@@ -9,6 +9,8 @@ import {setupServer} from 'msw/node';
 
 const  posts = [{id: 1, title: 'POST TITLE'},{id:1 ,title: 'Post2 Title'}]
 const author = [{id:'1' , username:'Author'}]
+
+ 
 export const restHandlers = [
     
     rest.get('http://localhost:3000/api/posts', (req,res, ctx)=>{
@@ -18,7 +20,15 @@ export const restHandlers = [
 
     rest.get('http://localhost:3000/api/profiles', (req,res, ctx)=>{
     return res(ctx.json(author))
-})
+}),
+
+  rest.post('http://localhost:3000/api/upload', (req, res, ctx) => {
+  return res(
+    ctx.status(200),
+    ctx.json({ url: 'https://mocked.storage/mockfile.png' })
+  );
+  }),
+
 ]
 
 

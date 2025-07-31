@@ -34,7 +34,8 @@ describe('<userprofile>', () => {
 
     render(ui);
 
-    expect(await screen.findByText('username: Author')).toBeInTheDocument();
-
+    expect(await screen.findByText('Author')).toBeInTheDocument();
+    expect(await screen.findByText('A')).toBeInTheDocument();
+    
   });
 });
