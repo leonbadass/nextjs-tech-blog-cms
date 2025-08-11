@@ -34,7 +34,12 @@ export default async function UserProfile() {
 
         <div>
           <h3 className="text-lg font-medium text-gray-700 mb-2">Bio</h3>
-          <p className="text-gray-600">{author.bio || "No bio available."}</p>
+          <div
+  className="text-gray-600 prose prose-blue max-w-none"
+  dangerouslySetInnerHTML={{
+    __html: author.bio || "<p>No bio available.</p>",
+  }}
+/>
         </div>
       </div>
       

@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import getAuthorById from "@/app/lib/getAuthorById";
 import { updateUserProfile } from "./actions";
+import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
 
 export default async function EditProfile() {
   const supabase = await createClient();
@@ -17,6 +18,8 @@ export default async function EditProfile() {
   if (author instanceof Error) {
     return <p>Unauthorized user</p>;
   }
+
+ 
 
   return (
     <div className="w-full min-h-100 flex flex-col items-center justify-center gap-20">
@@ -40,13 +43,15 @@ export default async function EditProfile() {
 
         <label htmlFor="bio">
          <span className="font-xl font-semibold  tracking-wider leading-snug text-blue-900" >Bio </span>
-          <textarea
+         {/* <textarea
             name="bio"
             id="bio"
             required
             defaultValue={author.bio}
             className= "w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y min-h-50"
-          />
+          />*/}
+          <SimpleEditor content={author.bio} name= "bio"/>
+
         </label>
 
        <label htmlFor="avatar" className="flex flex-col gap-2 cursor-pointer">
