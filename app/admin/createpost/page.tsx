@@ -1,6 +1,8 @@
 'use client'
 import React from 'react';
 import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
+import type {Image} from '@/app/types/image';
+import PostFeaturedImage from '@/app/component/PostFeaturedImage';
 
 export default function CreatePostPage(): React.JSX.Element {
     const [metaDescription, setMetaDescription] = React.useState('');
@@ -10,9 +12,11 @@ export default function CreatePostPage(): React.JSX.Element {
     const [ogDescription, setOgDescription] = React.useState('');
     const [category, setCategory] = React.useState('blog');
     const [tags, setTags] = React.useState<string[]>([]);
+     const [selectedImage, setSelectedImage] = React.useState<Image | null>(null);
 
 const categories = ['JavaScript', 'React', 'Next.js', 'CSS'];
 const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
+
 
   return (
     <div className="w-5/6  mx-auto my-8 py-4 px-8  text-blue-900 rounded-2xl ">
@@ -25,7 +29,7 @@ const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
     <div className="bg-gray-100 p-6 rounded-xl shadow-md">
       <p className="text-lg font-semibold text-center text-blue-900 mb-4">Meta Data</p>
 
-      <label htmlFor="title" className="block text-lg font-medium mb-2">
+      <label htmlFor="title" className="block text-sm font-medium mb-2">
         Title (Max 60 chars):
         <input
           type="text"
@@ -34,8 +38,8 @@ const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
           value={title}
           onChange={e => setTitle(e.target.value)}
           maxLength={60}
-          className="mt-1 block w-full text-sm rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
-          required
+          className="mt-1 max-h-4 block w-full text-sm rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
+          required 
         />
       </label>
 
@@ -47,7 +51,7 @@ const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
           name="slug"
           value={slug}
           onChange={e => setSlug(e.target.value)}
-          className="mt-1 block w-full rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
+          className="mt-1 block max-h-4 w-full rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
         />
       </label>
 
@@ -68,7 +72,7 @@ const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
           type="text"
           value={ogTitle}
           onChange={e => setOgTitle(e.target.value)}
-          className="mt-1 block w-full rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
+          className="mt-1 block max-h-4 w-full rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
         />
       </label>
 
@@ -133,6 +137,13 @@ const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
           ))}
         </div>
       </div>
+      <div className="mt-4">
+        <PostFeaturedImage
+          selectedImage={selectedImage}
+          setSelectedImage={setSelectedImage}/>
+        </div>
+
+
     </div>
 
     {/* Content Editor */}
