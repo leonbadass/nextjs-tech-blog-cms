@@ -42,9 +42,9 @@ export default async function Posts(): Promise<JSX.Element> {
             <li><Link href="/admin/posts/createpost" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline ">
             <MdPostAdd className="text-xl"/>Create New Post</Link></li> 
             <li><Link href="/admin/posts/categories" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline ">
-            <MdCategory className="text-xl"/>Categories</Link></li>     
+            <MdCategory className="text-xl"/>Manage Categories</Link></li>     
             <li><Link href="/admin/posts/tags" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline ">
-            <FaTags className="text-xl"/>Tags</Link></li>      
+            <FaTags className="text-xl"/>Manage Tags</Link></li>      
           </ul>
         </nav></div>
       <RenderPostsTable posts = {postsWithAuthors}/>

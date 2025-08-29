@@ -3,8 +3,13 @@ import React from 'react';
 import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
 import type {Image} from '@/app/types/image';
 import PostFeaturedImage from '@/app/component/PostFeaturedImage';
+import { useProfile } from "@/context/ProfileContext"
+
 
 export default function CreatePostPage(): React.JSX.Element {
+const profile = useProfile();
+const userRole = profile?.role ; // default to 'user' if profile or role is undefined
+
     const [metaDescription, setMetaDescription] = React.useState('');
     const [title, setTitle] = React.useState('');
     const [slug, setSlug] = React.useState('slug');
@@ -16,6 +21,19 @@ export default function CreatePostPage(): React.JSX.Element {
 
 const categories = ['JavaScript', 'React', 'Next.js', 'CSS'];
 const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];
+
+
+
+if (userRole !== 'admin' && userRole !== 'editor') {  
+  return (
+    <div className="w-5/6  mx-auto my-8 py-4 px-8  text-blue-900 rounded-2xl ">
+      <h1 className="text-xl font-bold text-center text-blue-900 mb-6">
+        Create a New Post
+      </h1>
+      <p className="text-red-600 text-center">You do not have permission to create posts.</p>
+    </div>
+  )
+}
 
 
   return (

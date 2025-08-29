@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import type { Category } from '@/app/types/category';
+import { sanitizePost } from '@/app/lib/sanitize';
 
 export async function GET(): Promise<NextResponse<{
     error: string;
@@ -46,10 +47,15 @@ export async function POST(request: Request) {
     finalSlug = `${finalSlug}-${counter++}`
   }
 
+  // Sanitize description
+  const sanitizedDescription = sanitizePost(description || "")  
+
+  
+
   // Insert category
   const { data, error } = await supabase
     .from("categories")
-    .insert([{ name: categoryName, slug: finalSlug, description: description }])
+    .insert([{ name: categoryName, slug: finalSlug, description: sanitizedDescription }])
     .select()
     .single()
 

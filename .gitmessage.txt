@@ -1,0 +1,14 @@
+# Commit message template
+# -----------------------
+# <type>(<scope>): <short summary>
+#
+# Types: feat | fix | docs | style | refactor | test | chore
+#
+# Example:
+# feat(category): add ability to create categories
+#
+# Longer description (optional). Wrap at 72 chars.
+#
+# Footer (optional):
+# - BREAKING CHANGE: ...
+# - Closes #123

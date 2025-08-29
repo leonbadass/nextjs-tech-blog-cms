@@ -187,7 +187,7 @@ const MobileToolbarContent = ({
 type SimpleEditorProps = {
   content?: string
   name?: string
-  onChange?: (html: string) => void 
+  onChange?: (html: string ) => void 
 }
 
 
@@ -240,7 +240,11 @@ export function SimpleEditor({content, name, onChange}: SimpleEditorProps): Reac
     ],
     content,
     onUpdate: ({ editor }) => {
+     
       setHtml(editor.getHTML()) // update live as user types
+       if (onChange && html) {
+      onChange(html)   // notify parent on every change
+    }
     },
   })
 
@@ -288,7 +292,7 @@ export function SimpleEditor({content, name, onChange}: SimpleEditorProps): Reac
           role="presentation"
           className="simple-editor-content w-3/4"
         />
-         <input type="hidden" name={name} value={html} />
+         <input type="hidden" name={name} value={html}   />
       </EditorContext.Provider>
       
     </div>
