@@ -12,7 +12,7 @@ export default function CreatePostPage(): React.JSX.Element {
     const [ogDescription, setOgDescription] = React.useState('');
     const [category, setCategory] = React.useState('blog');
     const [tags, setTags] = React.useState<string[]>([]);
-     const [selectedImage, setSelectedImage] = React.useState<Image | null>(null);
+    const [selectedImage, setSelectedImage] = React.useState<Image | null>(null);
 
 const categories = ['JavaScript', 'React', 'Next.js', 'CSS'];
 const tagsList = ['Frontend', 'Backend', 'SEO', 'UI/UX', 'Tailwind', 'DevOps'];

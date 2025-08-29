@@ -5,6 +5,10 @@ import { JSX } from "react";
 import RenderPostsTable from "@/app/component/RenderPostsTable"
 import getPosts from "@/app/lib/getposts";
 import getAuthorById from '@/app/lib/getAuthorById';
+import Link from "next/link";
+import { MdCategory, MdPostAdd } from "react-icons/md";
+import { FaTags } from "react-icons/fa";
+
 
 export default async function Posts(): Promise<JSX.Element> {
   const data = await getPosts();
@@ -32,8 +36,17 @@ export default async function Posts(): Promise<JSX.Element> {
       <div className="flex justify-between border-b border-solid border-black p-4 w-full">
         <h1 className="font-bold">Manage Posts</h1>
         <p>Search box and filter </p>
-
       </div>
+      <div className="p-4 border-b border-solid border-black"> <nav>
+          <ul className="flex justify-evenly">
+            <li><Link href="/admin/posts/createpost" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline ">
+            <MdPostAdd className="text-xl"/>Create New Post</Link></li> 
+            <li><Link href="/admin/posts/categories" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline ">
+            <MdCategory className="text-xl"/>Categories</Link></li>     
+            <li><Link href="/admin/posts/tags" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline ">
+            <FaTags className="text-xl"/>Tags</Link></li>      
+          </ul>
+        </nav></div>
       <RenderPostsTable posts = {postsWithAuthors}/>
 
     </div>

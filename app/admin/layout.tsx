@@ -10,7 +10,6 @@ const adminLayout = ({children,}: Readonly<{children: React.ReactNode}>): JSX.El
           <ul>
             <li><Link href="/admin">Dashboard</Link></li>
             <li><Link href="/admin/posts">Posts</Link></li>
-            <li><Link href="/admin/createpost">Create New Post</Link></li>
             <li><Link href="/admin/userprofile">User Profile</Link></li>
             <li><Link href="/admin/gallery">Gallery </Link></li>
           </ul>
