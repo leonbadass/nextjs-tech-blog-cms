@@ -191,6 +191,8 @@ type SimpleEditorProps = {
 }
 
 
+
+
 export function SimpleEditor({content, name, onChange}: SimpleEditorProps): React.JSX.Element {
   const isMobile = useIsMobile()
   const { height } = useWindowSize()
@@ -248,10 +250,8 @@ export function SimpleEditor({content, name, onChange}: SimpleEditorProps): Reac
     },
   })
 
-  const rect = useCursorVisibility({
-    editor,
-    overlayHeight: toolbarRef.current?.getBoundingClientRect().height ?? 0,
-  })
+
+  
 
   React.useEffect(() => {
     if (!isMobile && mobileView !== "main") {
