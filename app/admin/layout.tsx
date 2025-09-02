@@ -6,6 +6,7 @@ import { createClient } from '@/utils/supabase/server';
 import getAuthorById from "../lib/getAuthorById";
 import type { Profile } from "../types/profiles";
 import { ProfileProvider } from "@/context/ProfileContext"
+import { Breadcrumb } from "../component/breadCrumb";
 
 
 export default async function AdminLayout ({children,}: Readonly<{children: React.ReactNode}>):Promise<JSX.Element> {
@@ -25,7 +26,9 @@ export default async function AdminLayout ({children,}: Readonly<{children: Reac
         }
 
     return (<div className= "flex min-h-screen w-full ">
+       
          <aside className="w-64 bg-gray-900 text-white p-4 w-1/4">
+        
         <nav>
           <ul>
             <li><Link href="/admin">Dashboard</Link></li>
@@ -37,6 +40,7 @@ export default async function AdminLayout ({children,}: Readonly<{children: Reac
         </nav>
       </aside>
       <div className="w-full">
+        <Breadcrumb />
         <ProfileProvider profile={Profile} >
         {children}
         </ProfileProvider>

@@ -6,9 +6,10 @@ import { Category } from "../types/category";
 
 interface EditCategoryButtonProps {
   category: Category;
+  tab?: string;
 }
 
-export default function EditCategoryButton({category}: EditCategoryButtonProps): React.JSX.Element {
+export default function EditCategoryButton({category, tab}: EditCategoryButtonProps): React.JSX.Element {
     const [isOpen, setIsOpen] = React.useState(false);
     const [error, setError] = React.useState<string | null>(null);
     
@@ -25,7 +26,7 @@ export default function EditCategoryButton({category}: EditCategoryButtonProps):
         {isOpen? "Editing..." : "Edit"}
       </button>
       {error && <p className="text-red-500 text-sm ">{error}</p>}
-        {isOpen && <EditCategoriesModal category={category} onClose={() => setIsOpen(false)} />}
+        {isOpen && <EditCategoriesModal tab={tab} category={category} onClose={() => setIsOpen(false)} />}
     </div>
   );
 }

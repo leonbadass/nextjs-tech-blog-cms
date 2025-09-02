@@ -10,7 +10,7 @@ export async function GET(): Promise<NextResponse<{
 {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.from('categories').select('*');
+  const { data, error } = await supabase.from('tags').select('*');
 
   if (error) {
    
@@ -25,20 +25,20 @@ import { slugify } from '@/app/lib/slugify';
 
 export async function POST(request: Request) {
   const supabase = await createClient()
-  const { categoryName, categorySlug, description } = await request.json()
+  const { tagName, tagSlug, description } = await request.json()
 
-  if (!categoryName) {
+  if (!tagName) {
     return NextResponse.json({ error: "Name is required" }, { status: 400 })
   }
 
   // Generate slug if not provided
-  let finalSlug = categorySlug ? categorySlug : slugify(categoryName)
+  let finalSlug = tagSlug ? tagSlug : slugify(tagName)
 
   // Ensure slug is unique
   let counter = 1
   while (true) {
     const { data: existing } = await supabase
-      .from("categories")
+      .from("tags")
       .select("id")
       .eq("slug", finalSlug)
       .maybeSingle()
@@ -54,8 +54,8 @@ export async function POST(request: Request) {
 
   // Insert category
   const { data, error } = await supabase
-    .from("categories")
-    .insert([{ name: categoryName, slug: finalSlug, description: sanitizedDescription }])
+    .from("tags")
+    .insert([{ name: tagName, slug: finalSlug, description: sanitizedDescription }])
     .select()
     .single()
 
@@ -66,8 +66,6 @@ export async function POST(request: Request) {
   return NextResponse.json({ message: data as Category }, { status: 201 })
 }
 
-
-
 export async function DELETE(request: Request) {
   const supabase = await createClient()
   const { id } = await request.json()
@@ -77,7 +75,7 @@ export async function DELETE(request: Request) {
   }
 
   const { data, error } = await supabase
-    .from("categories")
+    .from("tags")
     .delete()
     .eq("id", id)
     .select()
@@ -91,8 +89,7 @@ export async function DELETE(request: Request) {
 }
 
 
-
-
+//update tags
 export async function PUT(request: Request) {
   const supabase = await createClient()
   const { id,name, slug, description } = await request.json()
@@ -112,7 +109,7 @@ export async function PUT(request: Request) {
   let counter = 1
   while (true) {
     const { data: existing } = await supabase
-      .from("categories")
+      .from("tags")
       .select("id")
       .eq("slug", finalSlug)
       .neq("id", id) // Exclude current category
@@ -127,7 +124,7 @@ export async function PUT(request: Request) {
 
   // Update category
   const { data, error } = await supabase
-    .from("categories")
+    .from("tags")
     .update({ name: name, slug: finalSlug, description: sanitizedDescription, updated_at: new Date() })
     .eq("id", id)
     .select()

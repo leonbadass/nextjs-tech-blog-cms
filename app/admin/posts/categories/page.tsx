@@ -19,6 +19,7 @@ export default async function categoriesPage():Promise< React.JSX.Element > {
 
   return (
     <div className="w-5/6  mx-auto my-8 py-4 px-8  text-gray-900 rounded-2xl ">
+      
 
        <div >
         <Link href="/admin/posts/createcategory" className="flex items-center gap-2 text-gray-900 font-semibold hover:underline mt-6">

@@ -4,9 +4,10 @@ import { useRouter } from 'next/navigation';
 
 interface DeleteCategoriesProps {
   categoryId: string;
+  name?: string
 }
 
-export default function DeleteCategories({ categoryId}: DeleteCategoriesProps): React.JSX.Element {
+export default function DeleteCategories({ categoryId, name}: DeleteCategoriesProps): React.JSX.Element {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
@@ -17,7 +18,7 @@ export default function DeleteCategories({ categoryId}: DeleteCategoriesProps): 
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:3000/api/categories", {
+      const res = await fetch(`http://localhost:3000/api/${name?name:'categories'}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
