@@ -23,7 +23,7 @@ export default async function Posts(): Promise<JSX.Element> {
 
    const postsWithAuthors = await Promise.all(
       data.map(async (post) => {
-        const author = await getAuthorById(post.author_id);
+        const author = await getAuthorById(post?.author_id||'');
         return {
           ...post,
           authorName: author instanceof Error ? "Unknown" : author.username,

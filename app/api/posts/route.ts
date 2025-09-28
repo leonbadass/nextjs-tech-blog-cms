@@ -17,3 +17,5 @@ export async function GET(): Promise<NextResponse<{
 
   return NextResponse.json(data as Post[]);
 }
+
+//createpost INSERT 

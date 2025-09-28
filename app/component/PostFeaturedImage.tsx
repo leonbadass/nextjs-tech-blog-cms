@@ -6,35 +6,64 @@ import type {Image} from '@/app/types/image';
 
 
 type PostFeaturedImageProps = {
-    selectedImage: Image | null;
-    setSelectedImage: (image: Image | null) => void;
+    selectedImage: Image | undefined;
+    setSelectedImage: (image: Image | undefined) => void;
+    featuredImageAlt: string| undefined;
+    setFeaturedImageAlt: (alt: string) => void;
 }
 
-export default function PostFeaturedImage ({selectedImage , setSelectedImage}: PostFeaturedImageProps): JSX.Element {
+export default function PostFeaturedImage (
+    {selectedImage , setSelectedImage,featuredImageAlt , setFeaturedImageAlt}
+    : PostFeaturedImageProps): JSX.Element {
+
     const [isModalOpen, setIsModalOpen] = useState(false);
    
 
 
     return(
-        <div className="w-full mx-auto my-8 p-6 ">
-            <h2 className="text-xl font-semibold mb-4">Featured Image</h2>
-            <div className="flex flex-col gap-4 items-center mb-4">
-                <button
+        <div className="w-full p-2 bg-gray-300 rounded-sm">
+           <div className='flex gap-2 mb-2'>
+             <p className="text-lg font-semibold ">Featured Image:</p>
+            <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="text-green-600 hover:underline"
+                    type='button'
                 >
-                    Select Image
+                    {selectedImage ? 'Change Image' : 'Select Image'}
                 </button>
-                <div>
-                {selectedImage && (<div>
-                    <img src={selectedImage.url} alt={selectedImage.alt_text} 
-                    className= "max-h-96" />
+                { selectedImage && <button
+                    onClick={() => setSelectedImage(null)}
+                    className="text-red-600 hover:underline"
+                    type='button'
+                >
+                    Remove Image
+                </button>}
+           </div>
+            
+                
+                <div >
+                {selectedImage && (<div className='flex gap-2'>
 
-                    <p>Alt Text: {selectedImage.alt_text}</p>
-                   <p className='mt-2 text-black'>Image Description: {selectedImage.description}</p>
-               </div> )}
+                    <img src={selectedImage.url} alt={selectedImage.alt_text} 
+                    className= "max-h-96 w-2/3" />
+                    <div className='w-1/3'>
+                    <label className="block text-sm font-medium mb-2">
+        SEO Image Alt text:
+        <input
+          value={featuredImageAlt}
+          maxLength={160}
+          onChange={e => setFeaturedImageAlt(e.target.value)}
+         className="mt-1 block max-h-4 w-full rounded-lg p-3 bg-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-900"
+        
+        />
+      </label>
+                   
+                    </div>
+
+               </div> 
+                )}
                 </div>
-            </div>
+            
             {isModalOpen && (
                 <ImageSelectorModal
                     open ={isModalOpen}

@@ -3,13 +3,13 @@ import Link from "next/link";
 import { MdPostAdd } from "react-icons/md";
 import DeleteCategories from "@/app/component/deleteCategories";
 import EditCategoryButton from "@/app/component/editCategoryButton";
+import fetchTags from "@/app/lib/fetchTags";
 
 
 export default async function categoriesPage():Promise< React.JSX.Element > {
 
   // Fetch categories from your database or API
-  const tags :Category[] = await fetch('http://localhost:3000/api/tags')
-  .then(res => res.json());
+  const tags :Category[] = await fetchTags() as Category[];
 
 
 

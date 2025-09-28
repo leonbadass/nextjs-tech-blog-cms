@@ -1,6 +1,7 @@
+'use server'
 import type { Category } from '@/app/types/category';
 
-export default async function fetchCategories(tagId?: string): Promise<Category[] | Category | Error> {
+export default async function fetchTags(tagId?: string): Promise<Category[] | Category | Error> {
     const res = await fetch('http://localhost:3000/api/tags', { cache: 'no-store' });
     if (!res.ok) {
         return new Error('Failed to fetch categories');
