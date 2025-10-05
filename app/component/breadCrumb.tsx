@@ -16,22 +16,22 @@ export function Breadcrumb() {
   });
 
   return (
-    <nav aria-label="Breadcrumb" className="text-sm  p-4">
+    <nav aria-label="Breadcrumb" className="text-xl  p-4">
       <ol className="flex items-center space-x-2">
         <li>
-          <Link href="/" className="text-gray-500 hover:underline">
+          <Link href="/" className="text-[#00ffc6] hover:underline">
             Home
           </Link>
         </li>
         {crumbs.map((crumb, idx) => (
-          <li key={crumb.href} className="flex items-center space-x-2">
-            <span className="text-gray-900">/</span>
+          <li key={crumb.href} className="flex items-center space-x-2 ">
+            <span className="text-[#00ffc6] ">/</span>
             {idx === crumbs.length - 1 ? (
-              <span className="font-medium text-gray-900">{crumb.label}</span>
+              <span className="font-medium text-[#ff6b35]">{crumb.label}</span>
             ) : (
               <Link
                 href={crumb.href}
-                className="text-gray-500 hover:underline"
+                className="text-[#00ffc6] hover:underline"
               >
                 {crumb.label}
               </Link>
