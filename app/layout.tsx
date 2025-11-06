@@ -1,6 +1,7 @@
 import React from "react";
 import './globals.css';
 import Header from "./component/header";
+import Footer from "./component/footer";
 
 
 export default function RootLayout({
@@ -16,6 +17,7 @@ export default function RootLayout({
         <main className="w-full min-h-screen bg-gray-50 ">
           {children}
         </main>
+        <Footer/>
       </body>
     </html>
   );

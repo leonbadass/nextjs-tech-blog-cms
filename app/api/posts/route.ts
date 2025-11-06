@@ -9,7 +9,7 @@ export async function GET(): Promise<NextResponse<{
 {
   const supabase = await createClient();
 
-  const { data, error } = await supabase.from('posts').select('*');
+  const { data, error } = await supabase.from('posts').select('*'); 
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

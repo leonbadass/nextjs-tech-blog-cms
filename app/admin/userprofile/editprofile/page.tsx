@@ -1,8 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import getAuthorById from "@/app/lib/getAuthorById";
-import { updateUserProfile } from "./actions";
-import { SimpleEditor } from '@/components/tiptap-templates/simple/simple-editor'
+import AuthorForm from "@/app/component/authorForm";
 
 export default async function EditProfile() {
   const supabase = await createClient();
@@ -19,6 +18,9 @@ export default async function EditProfile() {
     return <p>Unauthorized user</p>;
   }
 
+  
+
+
  
 
   return (
@@ -28,57 +30,7 @@ export default async function EditProfile() {
         <h4><span className="font-xl font-semibold  tracking-wider leading-snug text-blue-900" >Role: {author.role.toLocaleUpperCase()}</span></h4>
       </div>
 
-      <form action={updateUserProfile} className="flex flex-col gap-5 min-w-120">
-        <label htmlFor="username" className="font-xl font-semibold  tracking-wider leading-snug" >
-         <span className="text-blue-900">Username</span>
-          <input
-            name="username"
-            id="username"
-            type="text"
-            required
-            defaultValue={author.username}
-            className ="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </label>
-
-        <label htmlFor="bio">
-         <span className="font-xl font-semibold  tracking-wider leading-snug text-blue-900" >Bio </span>
-         {/* <textarea
-            name="bio"
-            id="bio"
-            required
-            defaultValue={author.bio}
-            className= "w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y min-h-50"
-          />*/}
-          <SimpleEditor content={author.bio} name= "bio"/>
-
-        </label>
-
-       <label htmlFor="avatar" className="flex flex-col gap-2 cursor-pointer">
-  <span className="text-xl font-semibold tracking-wide text-blue-900">
-    Upload Avatar
-  </span>
-
-  <input
-    name="avatar"
-    id="avatar"
-    type="file"
-    className="block w-full text-sm text-gray-700
-               file:mr-4 file:py-2 file:px-4
-               file:rounded-md file:border-0
-               file:text-sm file:font-semibold
-               file:bg-blue-50 file:text-blue-700
-               hover:file:bg-blue-100
-               focus:outline-none focus:ring-2 focus:ring-blue-500"
-  />
-</label>
-        <button
-          className="bg-blue-900 text-white py-2 rounded hover:bg-blue-700 transition w-20"
-          type="submit"
-        >
-          Update
-        </button>
-      </form>
+      <AuthorForm author={author} />
     </div>
   );
 }

@@ -1,6 +1,28 @@
-@import '../styles/_variables.scss';
-@import '../styles/_keyframe-animations.scss';
-@import "tailwindcss";
+/* Tailwind v4 core imports */
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
 
+/* Optional: your custom SCSS variables or keyframes */
+@import "../styles/_variables.scss";
+@import "../styles/_keyframe-animations.scss";
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700&display=swap');
+
+/* Universal Styling */
+:root {
+
+  --color-bg: #ffffff;
+}
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+ 
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
 

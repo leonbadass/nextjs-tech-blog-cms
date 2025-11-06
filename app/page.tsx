@@ -13,7 +13,7 @@ export default async function Home(): Promise<JSX.Element> {
 
  return(
     <div className='w-full'>
-       <div className="h-150 w-full px-16 bg-gradient-to-r from-[#0362c4] via-[#0a417a] to-[#12283e] text-[#fefefe] flex flex-col justify-center ">
+       <div className="h-100 w-full px-16 bg-gradient-to-r from-[#0362c4] via-[#0a417a] to-[#12283e] text-[#fefefe] flex flex-col justify-center ">
                        <h1 className="text-3xl md:text-4xl font-extrabold   py-8 tracking-tight drop-shadow-lg">
             Code. Circuits. <span className='font-bold text-[#00ffc6]'>Creativity.</span>
                </h1>
