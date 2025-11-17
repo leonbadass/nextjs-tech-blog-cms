@@ -32,7 +32,7 @@ export default function PostFeaturedImage (
                     {selectedImage ? 'Change Image' : 'Select Image'}
                 </button>
                 { selectedImage && <button
-                    onClick={() => setSelectedImage(null)}
+                    onClick={() => setSelectedImage(undefined)}
                     className="text-red-600 hover:underline"
                     type='button'
                 >
