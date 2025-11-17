@@ -31,7 +31,7 @@ const router = useRouter();
     const [ogDescription, setOgDescription] = React.useState('');
     const [category, setCategory] = React.useState('');
     const [tags, setTags] = React.useState<string[]>([]);
-    const [selectedImage, setSelectedImage] = React.useState<Image | null>(null);
+    const [selectedImage, setSelectedImage] = React.useState<Image | undefined>(undefined);
     const [excerpt, setExcerpt] = React.useState('');
     const [canonicalUrl, setCanonicalUrl] = React.useState('');
     const [focusKeywords, setFocusKeywords] = React.useState<string[]>([]);
@@ -95,7 +95,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)=>{
     setMetaDescription('')
     setCategory('')
     setTags([])
-    setSelectedImage(null)
+    setSelectedImage(undefined)
     setExcerpt('')
     setSlug('')
     setCreatedPost(post.title)
