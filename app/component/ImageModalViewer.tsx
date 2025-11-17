@@ -15,7 +15,8 @@ const handleDelete = async (imgUrl: string) => {
   setIsDeleting(true);
   setToDelete(imgUrl);
   try {
-    const response = await fetch('http://localhost:3000/api/images', {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+    const response = await fetch(`${baseUrl}/api/images`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

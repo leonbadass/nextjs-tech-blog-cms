@@ -8,9 +8,11 @@ import ImageModalViewer from "@/app/component/ImageModalViewer";
 export default async function GalleryPage() {
    // const file = null; // Placeholder for file handling logic
 
+   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
 
-    const   res = await fetch('http://localhost:3000/api/images',  
+
+    const   res = await fetch(`${baseUrl}/api/images`,  
      { cache: "no-store",
     })
 

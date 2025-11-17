@@ -18,7 +18,8 @@ export default function DeleteCategories({ categoryId, name}: DeleteCategoriesPr
     setError(null);
 
     try {
-      const res = await fetch(`http://localhost:3000/api/${name?name:'categories'}`, {
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+      const res = await fetch(`${baseUrl}/api/${name?name:'categories'}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

@@ -29,7 +29,8 @@ export default function CreateCategoryPage(): React.JSX.Element {
     setSuccess(null)
 
     try {
-      const res = await fetch("http://localhost:3000/api/categories", {
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+      const res = await fetch(`${baseUrl}/api/categories`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ categoryName, categorySlug, description }),

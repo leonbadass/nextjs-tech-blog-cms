@@ -6,9 +6,13 @@ import EditCategoryButton from "@/app/component/editCategoryButton";
 import fetchCategories from "@/app/lib/fetchCategories";
 
 export default async function categoriesPage():Promise< React.JSX.Element > {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
+
+
+  
   // Fetch categories from your database or API
-  const categories :Category[] = await fetch('http://localhost:3000/api/categories')
+  const categories :Category[] = await fetch(`${baseUrl}/api/categories`)
   .then(res => res.json());
 //delete category from db
  const fetchedCategory = async (categoryId: string): Promise<Category> => {

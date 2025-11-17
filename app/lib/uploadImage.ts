@@ -7,10 +7,11 @@ export default async function uploadImage(file: File): Promise<{ url: string } |
   formData.append('file', file);
 
   try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
     
 
 
-    const res = await fetch('http://localhost:3000/api/upload', {
+    const res = await fetch(`${baseUrl}/api/upload`, {
       method: 'POST',
       body: formData,
     });

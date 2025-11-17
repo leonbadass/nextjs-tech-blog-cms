@@ -21,7 +21,8 @@ export default function ImageSelectorModal ({open , onSelect , onClose}: ImageSe
         const fetchImages = async ()=>{
             setLoading(true);
             try{
-                const res = await fetch('http://localhost:3000/api/images');
+              const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+                const res = await fetch(`${baseUrl}/api/images`);
                 if (!res.ok) {
                     throw new Error('Failed to fetch images');
                 

@@ -73,7 +73,8 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     }
 
   try{
-     const res = await fetch('http://localhost:3000/api/images', {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+     const res = await fetch(`${baseUrl}/api/images`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

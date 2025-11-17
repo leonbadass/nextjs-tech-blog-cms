@@ -2,7 +2,8 @@
 import type { Category } from '@/app/types/category';
 
 export default async function fetchTags(tagId?: string): Promise<Category[] | Category | Error> {
-    const res = await fetch('http://localhost:3000/api/tags', { cache: 'no-store' });
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+    const res = await fetch(`${baseUrl}/api/tags`, { cache: 'no-store' });
     if (!res.ok) {
         return new Error('Failed to fetch categories');
     }
