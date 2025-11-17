@@ -6,7 +6,7 @@ import { Category } from '@/app/types/category';
 import { getAuthorById } from '@/services/authorservices';
 import type { Profile } from '@/app/types/profiles';
 import Link from 'next/link';
-import { Breadcrumb } from '@/app/component/breadCrumb';
+//import { Breadcrumb } from '@/app/component/breadCrumb';
 import AboutAuthorCard from '@/app/component/aboutAuthorCard';
 import fetchTags from '@/app/lib/fetchTags';
 import type { Metadata } from "next";
@@ -17,6 +17,7 @@ import Image from 'next/image';
 // ----------------------------------------------------------
 // ✅ Dynamic Metadata (SEO)
 // ----------------------------------------------------------
+/*
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const { slug } =  params;
     const posts = await getPosts() as Post[];
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       canonical: `https://yoursite.com/posts/${post.slug}`,
     },
   };
-}
+}*/
 
 // ----------------------------------------------------------
 // ✅ Page Component
