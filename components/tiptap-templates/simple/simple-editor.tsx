@@ -268,7 +268,7 @@ export function SimpleEditor({content, name, onChange}: SimpleEditorProps): Reac
           style={{
             ...(isMobile
               ? {
-                  bottom: `calc(100% - ${height - rect.y}px)`,
+                  height: height ? height * 0.1 : "10vh",
                 }
               : {}),
           }}
