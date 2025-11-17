@@ -41,7 +41,7 @@ export default function RenderPostsTable ({posts} : Props) : React.JSX.Element {
           <td className="px-4 py-3 font-medium">{post.authorName}</td>
           <td className="px-4 py-3 font-medium">{post.category_id}</td>
           <td className="px-4 py-3 font-medium">
-            {post.published? 'Published': 'Not Published'}
+            {post.status}
           </td>
            <td> <div className='flex gap-1'>
             <EditPostButton post={post}/>

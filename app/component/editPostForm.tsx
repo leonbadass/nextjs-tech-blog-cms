@@ -37,8 +37,8 @@ const router = useRouter();
     const [excerpt, setExcerpt] = React.useState(post.excerpt);
     const [canonicalUrl, setCanonicalUrl] = React.useState(post.canonical_url);
     const [focusKeywords, setFocusKeywords] = React.useState<string[]>(post.focus_keywords|| []);
-    const [content, setContent] = React.useState(post.content)
-    const [focusKeywordsComma, setFocusKeywordsComma] = React.useState([focusKeywords.join(', ')]);
+    const [content, setContent] = React.useState(post.content);
+    
     const [updatedPost, setUpdatedPost] = React.useState('')
     const [selectedImage, setSelectedImage] = React.useState<Image| undefined>(postfeaturedImage|| undefined)
     const [featuredImageAlt, setFeaturedImageAlt] = React.useState(post.featured_image_alt)
@@ -297,10 +297,10 @@ if (userRole !== 'admin' && userRole !== 'editor') {
       <label className="block text-sm font-medium mb-2">
         Focus keywords(max 5, comma separated):
         <textarea
-          value={focusKeywordsComma}
+          value={focusKeywords.join(', ')}
           maxLength={160}
           onChange={e => {
-            setFocusKeywordsComma(e.target.value)
+           
   const keywords = e.target.value
     .split(',')
     .map(k => k.trim())
