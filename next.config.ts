@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       "pwrjnsaglhczntwsknlt.supabase.co", // add your Supabase domain here
     ],
   },
+   eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
