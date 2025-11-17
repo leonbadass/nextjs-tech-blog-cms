@@ -18,7 +18,7 @@ import Image from 'next/image';
 // ✅ Dynamic Metadata (SEO)
 // ----------------------------------------------------------
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } =  params;
     const posts = await getPosts() as Post[];
   const post = posts.find(p => p.slug === slug);
 
