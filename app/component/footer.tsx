@@ -1,6 +1,7 @@
 import fetchCategories from "../lib/fetchCategories"
 import type { Category } from '../types/category';
 import fetchTags from "../lib/fetchTags"
+import Image from "next/image";
 
 import Link from "next/link";
 export default async function Footer(): Promise<React.JSX.Element> {
@@ -19,9 +20,17 @@ export default async function Footer(): Promise<React.JSX.Element> {
 
 
     return (
-        <footer className="bg-[#1e1e1e] text-white py-4 mt-4 h-60 flex flex-col justify-between">
-            <div className="flex flex-wrap  mb-6 px-6">
+        <footer className="bg-[#1e1e1e] text-white py-4 mt-4 h-60  md:h-80 flex flex-col justify-between">
+            {/*desktop footer content  */}
+            <div className="hidden md:flex flex-wrap  mb-6 px-6 mt-6">
                 <div className="w-1/3 flex flex-col justify-center">
+                 <Image
+                            src="/codingctrllogo2.png"
+                            alt="Footer Logo"
+                            width={150}
+                            height={40}
+                            className="object-contain"
+                          />
                     <h3 className="text-xl text-[#007bff] font-bold">Coding Control</h3>
                     <p className='text-sm text-[#f5f5f5]'><em>A collaborative tech blog connecting code, data, and design.</em></p>
                 </div>
@@ -57,6 +66,32 @@ export default async function Footer(): Promise<React.JSX.Element> {
                     </div>
                 </div>
             </div>
+            {/* mobile footer content  */}
+            
+            <div className="flex flex-col items-center md:hidden">
+                <div className="">
+                   <Link href="/"> <Image
+                            src="/codingctrllogo2.png"
+                            alt="Footer Logo"
+                            width={150}
+                            height={40}
+                            className="object-contain "
+                          />  </Link>
+                   
+                
+                </div>
+                <nav>
+                    <ul className="flex space-x-6 text-[#007bff] font-semibold text-lg tracking-wide opacity-60 mb-2">
+                    
+                        <li><Link href="/category">Categories</Link></li>
+                        <li><Link href="/tags">Tags</Link></li>
+                        <li><Link href="/about">About</Link></li>
+                        <li><Link href="/contact">Contact</Link></li>
+                    </ul>
+                </nav>
+
+            </div>
+
 {/*   copywrite div  */}
             <div className="border-t-4 border-gray-800 text-gray-500 w-7/10 mx-auto">
                 <p className="text-center  text-sm mt-2">© 2025 Coding Control. All rights reserved.</p>

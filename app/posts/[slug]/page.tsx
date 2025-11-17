@@ -158,11 +158,11 @@ if (error) {
                 className='mt-8 p-8'/>
                 </section>
 
-                <footer className='flex gap-2 my-6'>
+                <footer className='flex  gap-1 md:gap-2 md:my-6 my-4 flex-wrap items-center'>
               <h2 className='text-xl tracking-wide font-semibold'>Tags:</h2>
               {postTags.map(tag => (
-                <Link key={tag.id} href={`/tags/${tag.slug}`} className="text-lg font-semibold text-gray-500 hover:text-[#ff6b35] hover:underline">
-                  {tag.name} | 
+                <Link key={tag.id} href={`/tags/${tag.slug}`} className="text-sm md:text-lg font-semibold text-gray-500 hover:text-[#ff6b35] hover:underline border-r-2 border-gray-400 md-pr-2 pr-1">
+                  {tag.name}
                 </Link>
               ))}
 

@@ -24,7 +24,7 @@ export default function Contact() {
 
       <section className="mt-12 border-t pt-8">
         <h2 className="text-2xl font-semibold mb-4">Ways to Connect</h2>
-        <ul className="space-y-2 text-lg flex gap-4 ">
+        <ul className="space-y-2 text-lg flex flex-col md:flex-row gap-4 ">
           <li>
             💼{" "}
             <a
@@ -53,7 +53,7 @@ export default function Contact() {
               href="mailto:your.email@example.com"
               className="text-blue-600 hover:underline"
             >
-              your.email@example.com
+              admin@codingctrl.com
             </a>
           </li>
         </ul>

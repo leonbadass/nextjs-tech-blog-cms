@@ -20,9 +20,9 @@ export default async function CategoryPage(): Promise<React.JSX.Element> {
         
         <div className="flex flex-wrap w-screen gap-4 p-6 justify-center">
         {categories.map((category) => (
-            <div key={category.id} className=" bg-white w-[calc(30%-0.5rem)] p-8 text-center h-100 mb-4 
+            <div key={category.id} className=" bg-white w-full md:w-100 p-8 text-center h-105 mb-4 
             rounded-lg shadow-2xl hover:shadow-xl transition-shadow duration-300
-            flex flex-col ">
+            flex flex-col "> 
                 <div className="bg-gradient-to-r from-[#007bff] to-[#12283e] p-2 mb-4 rounded h-[15%] flex items-center justify-center">
                 <h2 className="text-2xl font-semibold text-white">{category.name}</h2>
                 </div>
@@ -33,7 +33,7 @@ export default async function CategoryPage(): Promise<React.JSX.Element> {
 />
                 <div className="mt-auto pb-8">
                <Link href={`/category/${category.slug}`}>
-  <p className="text-[#ff6b35] text-left text-xl font-semibold underline transition-all duration-200 rounded px-3 py-2 cursor-pointer hover:text-2xl hover:text-[#00ffc6] hover:bg-[#ff6b3520] focus:outline-none focus:ring-2 focus:ring-[#00ffc6]">
+  <p className=" text-[#ff6b35] text-left text-xl font-semibold underline transition-all duration-200 rounded px-3 py-2 cursor-pointer hover:text-2xl hover:text-[#00ffc6] hover:bg-[#ff6b3520] focus:outline-none focus:ring-2 focus:ring-[#00ffc6]">
     Explore category
   </p>
 </Link>

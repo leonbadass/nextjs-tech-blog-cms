@@ -39,7 +39,7 @@ if (!catgories || catgories instanceof Error) {
     
     return (<div>
         <Banner innerText={`About Author`}/>
-        <div className = "flex max-w-4xl mx-auto p-6 gap-10  ">
+        <div className = "flex flex-col md:flex-row max-w-4xl mx-auto p-6 gap-10  ">
             <div >
                 <h1 className="text-3xl font-bold mb-4 ">{author.username}</h1>
                 <div dangerouslySetInnerHTML={{__html: author.bio}} className="text-lg tracking-wide"/>

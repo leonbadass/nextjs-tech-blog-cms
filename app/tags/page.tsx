@@ -20,7 +20,7 @@ export default async function TagsPage(): Promise<React.JSX.Element> {
         
         <div className="flex flex-wrap w-screen gap-4 p-6 justify-center">
         {tags.map((tag) => (
-            <div key={tag.id} className=" bg-white w-[calc(30%-0.5rem)] p-8 text-center h-100 mb-4 
+            <div key={tag.id} className=" bg-white w-full md:w-100 p-8 text-center h-105 mb-4 
             rounded-lg shadow-2xl hover:shadow-xl transition-shadow duration-300
             flex flex-col ">
                 <div className="bg-gradient-to-r from-[#007bff] to-[#12283e] p-2 mb-4 rounded h-[15%] flex items-center justify-center">
