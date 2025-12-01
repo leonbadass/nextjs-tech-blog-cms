@@ -42,8 +42,9 @@ React.useEffect(() => {
     setSuccess(null)
 
     try {
-      const res = await fetch(`http://localhost:3000/api/${tab?tab:'categories'}`, {
-        method: "PUT",
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+      const res = await fetch(`${baseUrl}/api/${tab?tab:'categories'}`, {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, name, slug, description }),
       })
@@ -127,6 +128,7 @@ React.useEffect(() => {
           name="description"
           onChange={(html) =>{setDescription(html)}}
            />
+           
         </div>
        
       </label>
