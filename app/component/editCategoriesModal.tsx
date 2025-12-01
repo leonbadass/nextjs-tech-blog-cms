@@ -43,7 +43,7 @@ React.useEffect(() => {
 
     try {
       const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-      const res = await fetch(`${baseUrl}/api/${tab?tab:'categories'}`, {
+      const res = await fetch(`${baseUrl}/api/categories`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, name, slug, description }),
