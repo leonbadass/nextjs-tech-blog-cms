@@ -44,12 +44,13 @@ React.useEffect(() => {
     try {
       const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
       const res = await fetch(`${baseUrl}/api/categories`, {
-        method: "POST",
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id, name, slug, description }),
       })
 
       const data = await res.json()
+      
 
       if (!res.ok) {
         setError(data.error || "Something went wrong")
